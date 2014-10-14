@@ -19,3 +19,8 @@ fun dates_in_month(p1:(int*int*int) list ,p2:int) =
 	if null p1 then p1
 	else
 		(if #2 (hd p1) = p2 then (hd p1)::dates_in_month(tl p1,p2) else dates_in_month(tl p1,p2))
+
+fun dates_in_months(p1:(int*int*int) list , p2:int list) = 
+	if null p2 then nil
+	else
+		dates_in_month(p1,hd p2)@dates_in_months(p1,tl p2)
